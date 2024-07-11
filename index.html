@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertisements</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .card {
+      margin-bottom: 20px; /* Adjust the value to set the desired padding between ads */
+      border: none; /* Remove border for the cards */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
+    }
+    .card-footer {
+      background-color: #f8f9fa; /* Background color for the card footer */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Advertisement List</h2>
+
+    <!-- Filter component -->
+    <div class="mb-3">
+      <label for="filterTitle">Filter by Title:</label>
+      <input type="text" class="form-control" id="filterTitle" placeholder="Enter title">
+    </div>
+
+    <div id="advertisements" class="row">
+      <!-- Advertisements will be inserted here dynamically -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const advertisementsData = [
+        {
+          title: 'Mountain Bike',
+          description: 'A high-quality mountain bike perfect for off-road trails.',
+          image: 'https://via.placeholder.com/150?text=Mountain+Bike',
+          contact: 'contact1@example.com',
+          price: '$500',
+          details: 'This mountain bike features a lightweight aluminum frame, 21-speed gearing, and front suspension for a smooth ride on any terrain.'
+        },
+        {
+          title: 'Gaming Laptop',
+          description: 'A powerful laptop for gaming and high-performance tasks.',
+          image: 'https://via.placeholder.com/150?text=Gaming+Laptop',
+          contact: 'contact2@example.com',
+          price: '$1200',
+          details: 'Equipped with the latest Intel i7 processor, 16GB RAM, and NVIDIA RTX 3060 GPU, this laptop delivers top-notch gaming performance.'
+        },
+        {
+          title: 'Smartphone',
+          description: 'Latest model smartphone with all the modern features.',
+          image: 'https://via.placeholder.com/150?text=Smartphone',
+          contact: 'contact3@example.com',
+          price: '$800',
+          details: 'Featuring a 6.5-inch AMOLED display, 128GB storage, and a 48MP quad-camera system, this smartphone is perfect for capturing moments on the go.'
+        },
+        {
+          title: 'Electric Scooter',
+          description: 'Eco-friendly electric scooter with long battery life.',
+          image: 'https://via.placeholder.com/150?text=Electric+Scooter',
+          contact: 'contact4@example.com',
+          price: '$300',
+          details: 'This electric scooter offers a range of 20 miles on a single charge, with a top speed of 15 mph, making it ideal for city commuting.'
+        },
+        {
+          title: 'Smartwatch',
+          description: 'Advanced smartwatch with health tracking features.',
+          image: 'https://via.placeholder.com/150?text=Smartwatch',
+          contact: 'contact5@example.com',
+          price: '$200',
+          details: 'Track your heart rate, steps, and sleep patterns with this smartwatch, which also supports notifications and music control.'
+        },
+        {
+          title: 'Wireless Headphones',
+          description: 'Noise-cancelling wireless headphones with high fidelity sound.',
+          image: 'https://via.placeholder.com/150?text=Wireless+Headphones',
+          contact: 'contact6@example.com',
+          price: '$150',
+          details: 'Enjoy crystal-clear audio with these wireless headphones, featuring active noise cancellation and up to 20 hours of battery life.'
+        }
+      ];
+
+      function createAdvertisementCard(ad) {
+        const card = document.createElement('div');
+        card.className = 'card mb-4 col-md-4';
+
+        card.innerHTML = `
+          <img class="card-img-top" src="${ad.image}" alt="${ad.title}">
+          <div class="card-body">
+            <h5 class="card-title">${ad.title}</h5>
+            <p class="card-text">${ad.description}</p>
+            <p class="card-text"><strong>Price:</strong> ${ad.price}</p>
+            <p class="card-text" style="cursor: pointer; color: blue;" onclick="showContact('${ad.contact}')">Contact: ***</p>
+          </div>
+          <div class="card-footer text-center">
+            <button class="btn btn-info btn-block" onclick="showDetails('${ad.details}')">Details</button>
+          </div>
+        `;
+
+        return card;
+      }
+
+      function displayAdvertisements(advertisements) {
+        const advertisementsContainer = document.getElementById('advertisements');
+        advertisementsContainer.innerHTML = ''; // Clear existing ads
+        advertisements.forEach(ad => {
+          const adCard = createAdvertisementCard(ad);
+          advertisementsContainer.appendChild(adCard);
+        });
+      }
+
+      // Display all advertisements on page load
+      displayAdvertisements(advertisementsData);
+
+      // Function to show contact information
+      window.showContact = function(contact) {
+        alert(`Contact: ${contact}`);
+      }
+
+      // Function to show detailed information
+      window.showDetails = function(details) {
+        alert(`Details: ${details}`);
+      }
+
+      // Filter functionality
+      document.getElementById('filterTitle').addEventListener('input', function() {
+        const filterText = this.value.toLowerCase();
+        const filteredAds = advertisementsData.filter(ad => ad.title.toLowerCase().includes(filterText));
+        displayAdvertisements(filteredAds);
+      });
+    });
+  </script>
+</body>
+
+</html>
+
+
