@@ -8,13 +8,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .card {
-      margin-bottom: 20px; /* Adjust the value to set the desired padding between ads */
-      border: none; /* Remove border for the cards */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
-    }
-    .card-footer {
-      background-color: #f8f9fa; /* Background color for the card footer */
+    .custom-card {
+      background-color: #f0f0f0; /* Replace this with your desired background color */
     }
   </style>
 </head>
@@ -95,7 +90,7 @@
 
       function createAdvertisementCard(ad) {
         const card = document.createElement('div');
-        card.className = 'card mb-4 col-md-4';
+        card.className = 'card custom-card mb-4 col-md-4';
 
         card.innerHTML = `
           <img class="card-img-top" src="${ad.image}" alt="${ad.title}">
@@ -146,5 +141,3 @@
 </body>
 
 </html>
-
-
