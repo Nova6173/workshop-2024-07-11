@@ -8,28 +8,53 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-     
+    .card {
+      margin: 1px; /* Add margin to create space around the cards */
+      border: 1px solid #030202; /* Remove border for the cards */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
+      background-color: #f0f0f0; /* Change this value to your desired background color */
+      padding: 20px; /* Add padding to create space inside the card */
+      background-clip: padding-box; /* Ensure the padding color doesn't bleed into the border */
+      border-radius: 8px; /* Optional: Add border radius for rounded corners */
+      position: relative; /* Position relative to use z-index */
+    }
 
-     .card {
-  margin-bottom: 20px; /* Adjust the value to set the desired padding between ads */
-  border: 2px; /* Remove border for the cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
-  background-color: #f0f0f0; /* Change this value to your desired background color */
-  
-  margin-top: 20px; /* Add margin-top for spacing at the top of the cards */
-  padding: 30px; /* Add padding to create space inside the card */
-  background-clip: padding-box; /* Ensure the padding color doesn't bleed into the border */
-  border-radius: 8px; /* Optional: Add border radius for rounded corners */
-  position: relative; /* Position relative to use z-index */
-}
-#filterTitle {
-  border: 1px solid #000; /* Set a thicker border */
-  background-color: #f0f0f0; /* Set a light gray background */
-}
+    .card-background {
+      position: absolute;
+      top: -10px; /* Adjust this value to change how much the red background extends above the card */
+      left: 0;
+      right: 0;
+      height: 10px; /* Adjust this value to change the height of the red background above the card */
+      background-color: red; /* Change this to your desired background color */
+      z-index: -1; /* Ensure it stays behind the card content */
+      border-radius: 8px 8px 0 0; /* Match the border-radius of the card for smooth edges */
+    }
 
+    #filterTitle {
+      border: 1px solid #000; /* Set a thicker border */
+      background-color: #f0f0f0; /* Set a light gray background */
+    }
 
+    .background-container {
+      background-color: #84ccf9; /* Set the beige background color */
+      padding: 50px; /* Padding inside the container */
+      border: 1px solid #000; /* Thin black border */
+      border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    }
 
+    .custom-card {
+      margin-bottom: 20px; /* Adjust margin to create space between the cards */
+    }
 
+    .text-contact {
+      color: rgb(255, 0, 81); /* Change to desired color */
+      cursor: pointer;
+    }
+
+    .btn-custom {
+      color: white; /* Change to desired color */
+      background-color: #4976f3; /* Match Bootstrap btn-info background color or change to desired color */
+    }
   </style>
 </head>
 
@@ -111,7 +136,7 @@
 
       function createAdvertisementCard(ad) {
         const card = document.createElement('div');
-        card.className = 'card custom-card mb-4 col-md-4';
+        card.className = 'card custom-card col-md-4 col-sm-6';
 
         card.innerHTML = `
           <img class="card-img-top" src="${ad.image}" alt="${ad.title}">
@@ -119,10 +144,10 @@
             <h5 class="card-title">${ad.title}</h5>
             <p class="card-text">${ad.description}</p>
             <p class="card-text"><strong>Price:</strong> ${ad.price}</p>
-            <p class="card-text" style="cursor: pointer; color: blue;" onclick="showContact('${ad.contact}')">Contact: ***</p>
+            <p class="card-text text-contact" onclick="showContact('${ad.contact}')">Contact: ***</p>
           </div>
           <div class="card-footer text-center">
-            <button class="btn btn-info btn-block" onclick="showDetails('${ad.details}')">Details</button>
+            <button class="btn btn-custom btn-block" onclick="showDetails('${ad.details}')">Details</button>
           </div>
         `;
 
