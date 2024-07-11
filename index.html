@@ -9,10 +9,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .card {
-      margin: 1px; /* Add margin to create space around the cards */
+      margin-bottom: 10px; /* Add margin to create space around the cards */
       border: 1px solid #030202; /* Remove border for the cards */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
-      background-color: #f0f0f0; /* Change this value to your desired background color */
+      background-color: #f08ff1; /* Change this value to your desired background color */
+      margin-top: 20px;
       padding: 20px; /* Add padding to create space inside the card */
       background-clip: padding-box; /* Ensure the padding color doesn't bleed into the border */
       border-radius: 8px; /* Optional: Add border radius for rounded corners */
@@ -36,14 +37,14 @@
     }
 
     .background-container {
-      background-color: #84ccf9; /* Set the beige background color */
+      background-color: #84ccf9; /* Set the background color */
       padding: 50px; /* Padding inside the container */
       border: 1px solid #000; /* Thin black border */
       border-radius: 8px; /* Optional: Add border radius for rounded corners */
     }
 
     .custom-card {
-      margin-bottom: 20px; /* Adjust margin to create space between the cards */
+      margin-bottom: 10px; /* Adjust margin to create space between the cards */
     }
 
     .text-contact {
@@ -61,7 +62,7 @@
 <body>
 
   <div class="container mt-5">
-    <h2 class="mb-4">Advertisement List</h2>
+    <h2 class="mb-4 text-center">Flash Sale</h2> <!-- Added text-center class -->
 
     <!-- Filter component -->
     <div class="mb-3">
@@ -136,7 +137,7 @@
 
       function createAdvertisementCard(ad) {
         const card = document.createElement('div');
-        card.className = 'card custom-card col-md-4 col-sm-6';
+        card.className = 'card custom-card col-lg-4 col-md-6 col-sm-12';
 
         card.innerHTML = `
           <img class="card-img-top" src="${ad.image}" alt="${ad.title}">
@@ -177,7 +178,7 @@
       }
 
       // Filter functionality
-      document.getElementById('filterTitle').addEventListener('input', function() {
+      document.getElementById('filterTitle').addEventListener('input', function () {
         const filterText = this.value.toLowerCase();
         const filteredAds = advertisementsData.filter(ad => ad.title.toLowerCase().includes(filterText));
         displayAdvertisements(filteredAds);
