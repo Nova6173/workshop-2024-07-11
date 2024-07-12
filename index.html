@@ -85,6 +85,12 @@
       z-index: -1;
     }
 
+    .card-img-top {
+      width: 100%;
+      height: 400px; /* Set a fixed height for all images */
+      object-fit: cover; /* Ensure images cover the area without distortion */
+    }
+
   </style>
 </head>
 
@@ -118,7 +124,7 @@
         {
           title: 'Mountain Bike',
           description: 'A high-quality mountain bike perfect for off-road trails.',
-          image: 'https://via.placeholder.com/150?text=Mountain+Bike',
+          image: 'images/mountain-bike-2447170_1280.jpg',
           contact: 'contact1@example.com',
           price: '$500',
           details: 'This mountain bike features a lightweight aluminum frame, 21-speed gearing, and front suspension for a smooth ride on any terrain.'
@@ -126,7 +132,7 @@
         {
           title: 'Gaming Laptop',
           description: 'A powerful laptop for gaming and high-performance tasks.',
-          image: 'https://via.placeholder.com/150?text=Gaming+Laptop',
+          image: 'images/laptop-7263006_1280.png',
           contact: 'contact2@example.com',
           price: '$1200',
           details: 'Equipped with the latest Intel i7 processor, 16GB RAM, and NVIDIA RTX 3060 GPU, this laptop delivers top-notch gaming performance.'
@@ -134,7 +140,7 @@
         {
           title: 'Smartphone',
           description: 'Latest model smartphone with all the modern features.',
-          image: 'https://via.placeholder.com/150?text=Smartphone',
+          image: 'images/mobile-157065_1280.png',
           contact: 'contact3@example.com',
           price: '$800',
           details: 'Featuring a 6.5-inch AMOLED display, 128GB storage, and a 48MP quad-camera system, this smartphone is perfect for capturing moments on the go.'
@@ -142,7 +148,7 @@
         {
           title: 'Electric Scooter',
           description: 'Eco-friendly electric scooter with long battery life.',
-          image: 'https://via.placeholder.com/150?text=Electric+Scooter',
+          image: 'images/old-man-2815675_1280.png',
           contact: 'contact4@example.com',
           price: '$300',
           details: 'This electric scooter offers a range of 20 miles on a single charge, with a top speed of 15 mph, making it ideal for city commuting.'
@@ -150,7 +156,7 @@
         {
           title: 'Smartwatch',
           description: 'Advanced smartwatch with health tracking features.',
-          image: 'https://via.placeholder.com/150?text=Smartwatch',
+          image: 'images/smart-watch-821559_1280.jpg',
           contact: 'contact5@example.com',
           price: '$200',
           details: 'Track your heart rate, steps, and sleep patterns with this smartwatch, which also supports notifications and music control.'
@@ -158,7 +164,7 @@
         {
           title: 'Wireless Headphones',
           description: 'Noise-cancelling wireless headphones with high fidelity sound.',
-          image: 'https://via.placeholder.com/150?text=Wireless+Headphones',
+          image: 'images/earphones-5193970_1280.jpg"',
           contact: 'contact6@example.com',
           price: '$150',
           details: 'Enjoy crystal-clear audio with these wireless headphones, featuring active noise cancellation and up to 20 hours of battery life.'
@@ -184,6 +190,7 @@
 
         return card;
       }
+      
 
       function displayAdvertisements(advertisements) {
         const advertisementsContainer = document.getElementById('advertisements');
