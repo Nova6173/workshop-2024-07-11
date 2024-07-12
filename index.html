@@ -5,14 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advertisements</title>
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
   <style>
     .card {
       margin-bottom: 10px; /* Add margin to create space around the cards */
       border: 1px solid #030202; /* Remove border for the cards */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
-      background-color: #f08ff1; /* Change this value to your desired background color */
+      background-color: #ff6600; /* Change this value to your desired background color */
       margin-top: 20px;
       padding: 20px; /* Add padding to create space inside the card */
       background-clip: padding-box; /* Ensure the padding color doesn't bleed into the border */
@@ -20,16 +25,18 @@
       position: relative; /* Position relative to use z-index */
     }
 
+    /* Card background 	
     .card-background {
       position: absolute;
       top: -10px; /* Adjust this value to change how much the red background extends above the card */
       left: 0;
       right: 0;
       height: 10px; /* Adjust this value to change the height of the red background above the card */
-      background-color: red; /* Change this to your desired background color */
+      background-color:none; /* Change this to your desired background color */
       z-index: -1; /* Ensure it stays behind the card content */
-      border-radius: 8px 8px 0 0; /* Match the border-radius of the card for smooth edges */
+      border-radius: 8px 8px 0 0; /* Match the border-radius of the card for smooth edges */*/
     }
+
 
     #filterTitle {
       border: 1px solid #000; /* Set a thicker border */
@@ -37,10 +44,10 @@
     }
 
     .background-container {
-      background-color: #84ccf9; /* Set the background color */
+      background-color: #030601; /* Set the background color */
       padding: 50px; /* Padding inside the container */
-      border: 1px solid #000; /* Thin black border */
-      border-radius: 8px; /* Optional: Add border radius for rounded corners */
+      border: 1px solid #ff6600; /* Thin colored border */
+      border-radius: 10px; /* Optional: Add border radius for rounded corners */
     }
 
     .custom-card {
@@ -48,7 +55,7 @@
     }
 
     .text-contact {
-      color: rgb(255, 0, 81); /* Change to desired color */
+      color: rgb(225, 236, 16); /* Change to desired color */
       cursor: pointer;
     }
 
@@ -56,13 +63,35 @@
       color: white; /* Change to desired color */
       background-color: #4976f3; /* Match Bootstrap btn-info background color or change to desired color */
     }
+
+    .flash-sale-title {
+      text-align: center; /* Center the text */
+      font-family: 'Bungee', cursive; /* Use Bungee font */
+      color: #ff6600; /* Change to your desired color */
+      font-size: 3em; /* Make the text larger */
+      text-shadow: 2px 2px #000000, 0 0 25px #ff6600, 0 0 5px #ff0000; /* Flame effect */
+      position: relative;
+    }
+
+    .flame {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/ed/Flame_animated.gif') repeat-x;
+      background-size: contain;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
   </style>
 </head>
 
 <body>
 
   <div class="container mt-5">
-    <h2 class="mb-4 text-center">Flash Sale</h2> <!-- Added text-center class -->
+    <h2 class="flash-sale-title mb-4">Flash Sale</h2> <!-- Centered text with custom font and color -->
 
     <!-- Filter component -->
     <div class="mb-3">
@@ -76,6 +105,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
